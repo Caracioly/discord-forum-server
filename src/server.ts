@@ -3,7 +3,6 @@ import fastifyCors from "@fastify/cors";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 
-import { getUser } from "./routes/get-user";
 import { errorHandler } from "./error-handler";
 import {
   jsonSchemaTransform,
@@ -11,10 +10,15 @@ import {
   validatorCompiler,
 } from "fastify-type-provider-zod";
 
+import { getUserPosts } from "./routes/get-user-posts";
+import { getUser } from "./routes/get-user";
+import { getUserComments } from "./routes/get-user-comments";
+import { createUser } from "./routes/create-user";
+
 const app = fastify();
 
 app.register(fastifyCors, {
-  origin: "*", // https://meufontend.com
+  origin: "*", // https://meufrontend.com
 });
 
 app.register(fastifySwagger, {
@@ -23,21 +27,25 @@ app.register(fastifySwagger, {
     produces: ["application/json"],
     info: {
       title: "discord forum",
-      description: "O discord forum é um 'clone' do forum do discord com funcionalidades parecidas",
-      version: "1.0.0"
+      description:
+        "O discord forum é um 'clone' do forum do discord com funcionalidades parecidas",
+      version: "1.0.0",
     },
   },
   transform: jsonSchemaTransform,
-})
+});
 
 app.register(fastifySwaggerUi, {
-  routePrefix: "/docs"
-})
+  routePrefix: "/docs",
+});
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
 app.register(getUser);
+app.register(getUserPosts);
+app.register(getUserComments);
+app.register(createUser);
 
 app.setErrorHandler(errorHandler);
 

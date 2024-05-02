@@ -9,7 +9,7 @@ export async function getUser(app: FastifyInstance) {
     "/users/:userId",
     {
       schema: {
-        summary: "get an user by id",
+        summary: "get user by id",
         tags: ["users"],
         params: z.object({
           userId: z.string().uuid(),

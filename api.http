@@ -1,2 +1,18 @@
 ### Get User by Id
 GET http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04
+
+### Get user posts by the author id
+GET http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04/posts
+
+### Get user comments by the author id
+GET http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04/comments
+
+### Create a new user
+POST http://localhost:3333/users
+Content-Type:  application/json
+
+{
+  "email": "andre2@gmail.com",
+  "password": "senha123",
+  "userTag": "amdre2"
+}
