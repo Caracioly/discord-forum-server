@@ -4,15 +4,15 @@ import { BadRequest } from "./_erros/bad-request";
 import { prisma } from "../lib/prisma";
 import { z } from "zod";
 
-export async function getUser(app: FastifyInstance) {
+export async function getUserByEmail(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(
-    "/users/:userId",
+    "/users/:userEmail",
     {
       schema: {
-        summary: "get user by id",
+        summary: "get user by email",
         tags: ["users"],
         params: z.object({
-          userId: z.string().uuid(),
+          userEmail: z.string().email(),
         }),
         response: {
           200: z.object({
@@ -29,7 +29,7 @@ export async function getUser(app: FastifyInstance) {
       },
     },
     async (request, reply) => {
-      const { userId } = request.params;
+      const { userEmail } = request.params;
 
       const user = await prisma.user.findUnique({
         select: {
@@ -43,11 +43,11 @@ export async function getUser(app: FastifyInstance) {
           posts: false,
         },
         where: {
-          id: userId,
+          email: userEmail,
         },
       });
 
-      if (user === null) { 
+      if (user === null) {
         throw new BadRequest("User not Found");
       }
 

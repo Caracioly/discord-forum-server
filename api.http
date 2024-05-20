@@ -7,12 +7,26 @@ GET http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04/posts
 ### Get user comments by the author id
 GET http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04/comments
 
+### Send a email and password to auth the user
+POST http://localhost:3333/login
+Content-Type: application/json
+
+{
+  "email": "andr1@gmail.com",
+  "password": "senha1285"
+}
+
+
 ### Create a new user
 POST http://localhost:3333/users
 Content-Type:  application/json
 
 {
-  "email": "andre2@gmail.com",
-  "password": "senha123",
-  "userTag": "amdre2"
+  "email": "andr1@gmail.com",
+  "password": "senha1285",
+  "userTag": "amdre3"
 }
+
+
+### Delete User by Id
+DELETE  http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04

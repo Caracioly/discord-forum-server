@@ -11,9 +11,11 @@ import {
 } from "fastify-type-provider-zod";
 
 import { getUserPosts } from "./routes/get-user-posts";
-import { getUser } from "./routes/get-user";
+import { getUserById } from "./routes/get-user-by-Id";
+import { loginAuth } from "./routes/login-auth";
 import { getUserComments } from "./routes/get-user-comments";
 import { createUser } from "./routes/create-user";
+import { deleteUserById } from "./routes/delete-user-by-id";
 
 const app = fastify();
 
@@ -42,10 +44,12 @@ app.register(fastifySwaggerUi, {
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
-app.register(getUser);
+app.register(getUserById);
+app.register(loginAuth);
 app.register(getUserPosts);
 app.register(getUserComments);
 app.register(createUser);
+app.register(deleteUserById);
 
 app.setErrorHandler(errorHandler);
 
