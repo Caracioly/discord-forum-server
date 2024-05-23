@@ -22,11 +22,13 @@ POST http://localhost:3333/users
 Content-Type:  application/json
 
 {
-  "email": "andr1@gmail.com",
-  "password": "senha1285",
-  "userTag": "amdre3"
+  "email": "admin@email.com",
+  "password": "admin",
+  "userTag": "admin2",
+  "birthDate": "1978-06-21"
+  
 }
 
 
 ### Delete User by Id
-DELETE  http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04
+DELETE  http://localhost:3333/users/1ddd199a-2534-4841-9f1e-ea9d2a0e0877

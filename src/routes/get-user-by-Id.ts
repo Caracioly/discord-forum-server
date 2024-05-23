@@ -21,6 +21,7 @@ export async function getUserById(app: FastifyInstance) {
               email: z.string().email(),
               userTag: z.string(),
               createdAt: z.date(),
+              birthDate: z.date(),
               profilePicUrl: z.string().nullable(),
             }),
           }),
@@ -36,6 +37,7 @@ export async function getUserById(app: FastifyInstance) {
           email: true,
           userTag: true,
           createdAt: true,
+          birthDate: true,
           profilePicUrl: true,
         },
         where: {
@@ -53,6 +55,7 @@ export async function getUserById(app: FastifyInstance) {
           email: user.email,
           userTag: user.userTag,
           createdAt: user.createdAt,
+          birthDate: user.birthDate,
           profilePicUrl: user.profilePicUrl,
         },
       });

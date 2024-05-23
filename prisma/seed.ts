@@ -6,6 +6,7 @@ async function seed() {
       email: "andre@email.com",
       userTag: "andre",
       password: "123",
+      birthDate: new Date("1999-06-21")
     },
   });
 }

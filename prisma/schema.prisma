@@ -12,6 +12,7 @@ model User {
   email         String    @unique
   userTag       String    @unique @map("user_tag")
   password      String
+  birthDate     DateTime  @map("birth_date")
   createdAt     DateTime  @default(now()) @map("created_at")
   profilePicUrl String?   @map("profile_pic_url")
   posts         Post[]
