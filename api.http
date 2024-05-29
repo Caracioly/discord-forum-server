@@ -1,11 +1,11 @@
 ### Get User by Id
-GET http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04
+GET http://localhost:3333/users/2ddac0ae-8458-477a-b2af-f2f4d1924692
 
 ### Get user posts by the author id
-GET http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04/posts
+GET http://localhost:3333/users/2ddac0ae-8458-477a-b2af-f2f4d1924692/posts
 
 ### Get user comments by the author id
-GET http://localhost:3333/users/b28aebd5-047e-4c6a-b54f-f44196889b04/comments
+GET http://localhost:3333/users/2ddac0ae-8458-477a-b2af-f2f4d1924692/comments
 
 ### Send a email and password to auth the user
 POST http://localhost:3333/login

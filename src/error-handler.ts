@@ -30,5 +30,6 @@ export const errorHandler: FastifyErrorHandler = (error, request, reply) => {
         .send({ message: "Another user with same user tag already exists." });
     }
   }
+  
   return reply.status(500).send({ message: "Internal server error" });
 };
